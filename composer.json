@@ -1,0 +1,21 @@
+{
+    "name": "zfstarter/zfs-rbac",
+    "description": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Filipp 'Qoma' Kucherjavenko",
+            "email": "filippk8@gmail.com",
+            "homepage": "http://www.qoma.name"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ZFS\\Rbac\\": "src/Rbac"
+        },
+        "classmap" : ["Module.php"]
+    },
+    "require": {
+        "php": ">=5.3.23"
+    }
+}
