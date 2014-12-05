@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Qoma
- * Date: 12/06/14
- * Time: 13:34
- */
 
 namespace ZFS\Rbac;
 
@@ -12,6 +6,10 @@ use Zend\ModuleManager\Feature\ControllerPluginProviderInterface;
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
 use Zend\ModuleManager\Feature\ViewHelperProviderInterface;
 
+/**
+ * Class Module
+ * @package ZFS\Rbac
+ */
 class Module implements ServiceProviderInterface, ControllerPluginProviderInterface, ViewHelperProviderInterface
 {
     /**

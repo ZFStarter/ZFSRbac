@@ -7,6 +7,10 @@ use Zend\Mvc\Controller\AbstractController;
 use Zend\Mvc\Controller\Plugin\AbstractPlugin;
 use Zend\Mvc\Router\Exception\RuntimeException;
 
+/**
+ * Class IsGranted
+ * @package ZFS\Rbac\Mvc\Controller\Plugin
+ */
 class IsGranted extends AbstractPlugin
 {
     /**

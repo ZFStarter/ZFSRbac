@@ -8,10 +8,12 @@ use Zend\EventManager\EventManagerAwareInterface;
 use Zend\EventManager\EventManagerInterface;
 use Zend\Permissions\Rbac\Rbac;
 use Zend\Permissions\Rbac\Role;
-use Zend\ServiceManager\ServiceLocatorAwareInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Stdlib\Parameters;
 
+/**
+ * Class Service
+ * @package ZFS\Rbac
+ */
 class Service implements EventManagerAwareInterface
 {
     const EVENT_MANAGER_IDENTIFIER = 'ZFS\Rbac\Service\EventManager';
