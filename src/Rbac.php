@@ -135,7 +135,14 @@ class Rbac implements EventManagerAwareInterface
                 $this,
                 array(),
                 function ($config) use (&$roles) {
-                    $config = is_array($config) ? $config : array();
+                    if (is_string($config)) {
+                        $config = array($config);
+                    }
+
+                    if (!is_array($config)) {
+                        $config = array();
+                    }
+
                     $roles = array_merge($roles, $config);
                 }
             );
