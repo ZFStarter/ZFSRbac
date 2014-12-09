@@ -2,7 +2,6 @@
 
 namespace ZFS\Rbac\Mvc\Controller\Plugin;
 
-use Zend\Http\Response;
 use Zend\Mvc\Controller\AbstractController;
 use Zend\Mvc\Controller\Plugin\AbstractPlugin;
 use Zend\Mvc\Router\Exception\RuntimeException;

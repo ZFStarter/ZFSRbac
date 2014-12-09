@@ -22,7 +22,7 @@ class Module implements ServiceProviderInterface, ControllerPluginProviderInterf
     {
         return array(
             'invokables' => array(
-                'ZFS\Rbac\Service' => 'ZFS\Rbac\Service'
+                'ZFS\Rbac\Rbac' => 'ZFS\Rbac\Rbac'
             ),
         );
     }
