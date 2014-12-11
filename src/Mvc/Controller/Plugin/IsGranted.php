@@ -26,6 +26,6 @@ class IsGranted extends AbstractPlugin
             throw new RuntimeException('Unknown controller class');
         }
 
-        return $controller->getServiceLocator()->get('ZFS\Rbac\Service')->isGranted($permissions, $recollect);
+        return $controller->getServiceLocator()->get('ZFS\Rbac\Rbac')->isGranted($permissions, $recollect);
     }
 }

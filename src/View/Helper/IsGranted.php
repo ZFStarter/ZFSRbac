@@ -25,7 +25,7 @@ class IsGranted extends AbstractHelper
                 ->getView()
                 ->getHelperPluginManager()
                 ->getServiceLocator()
-                ->get('ZFS\Rbac\Service')
+                ->get('ZFS\Rbac\Rbac')
                 ->isGranted($permissions, $recollect);
         } else {
             return false;
