@@ -2,11 +2,14 @@
 
 namespace ZFS\Rbac\Mvc\Controller\Plugin;
 
-use Zend\Http\Response;
 use Zend\Mvc\Controller\AbstractController;
 use Zend\Mvc\Controller\Plugin\AbstractPlugin;
 use Zend\Mvc\Router\Exception\RuntimeException;
 
+/**
+ * Class IsGranted
+ * @package ZFS\Rbac\Mvc\Controller\Plugin
+ */
 class IsGranted extends AbstractPlugin
 {
     /**
@@ -23,6 +26,6 @@ class IsGranted extends AbstractPlugin
             throw new RuntimeException('Unknown controller class');
         }
 
-        return $controller->getServiceLocator()->get('ZFS\Rbac\Service')->isGranted($permissions, $recollect);
+        return $controller->getServiceLocator()->get('ZFS\Rbac\Rbac')->isGranted($permissions, $recollect);
     }
 }

@@ -91,7 +91,7 @@ class IndexController extends AbstractActionController
 
 - где угодно, где есть доступ к ```ServiceLocator```:
 ```php
-$this->getServiceLocator()->get('ZFS\Rbac\Service')->isGranted('some_permission');
+$this->getServiceLocator()->get('ZFS\Rbac\Rbac')->isGranted('some_permission');
 ```
 
 Во всех трех примерах метод isGranted принимает первым аргументом строку с именем разрешения или массив имён разрешения, а вторым аргументом булевый флаг, указывающий на надобность повторного вызова события EVENT_GET_USER_ROLES. По умолчанию, стоит в false.

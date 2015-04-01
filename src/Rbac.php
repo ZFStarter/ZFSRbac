@@ -6,13 +6,14 @@ use Zend\Config\Config;
 use Zend\EventManager\EventManager;
 use Zend\EventManager\EventManagerAwareInterface;
 use Zend\EventManager\EventManagerInterface;
-use Zend\Permissions\Rbac\Rbac;
 use Zend\Permissions\Rbac\Role;
-use Zend\ServiceManager\ServiceLocatorAwareInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Stdlib\Parameters;
 
-class Service implements EventManagerAwareInterface
+/**
+ * Class Rbac
+ * @package ZFS\Rbac
+ */
+class Rbac implements EventManagerAwareInterface
 {
     const EVENT_MANAGER_IDENTIFIER = 'ZFS\Rbac\Service\EventManager';
     const EVENT_GET_CONFIG         = 'ZFS\Rbac\Service\Event\GetConfig';
@@ -35,7 +36,7 @@ class Service implements EventManagerAwareInterface
      */
     protected function initialize()
     {
-        $this->rbac = new Rbac();
+        $this->rbac = new \Zend\Permissions\Rbac\Rbac();
 
         $roles = array();
         $this->getEventManager()->trigger(
@@ -134,7 +135,14 @@ class Service implements EventManagerAwareInterface
                 $this,
                 array(),
                 function ($config) use (&$roles) {
-                    $config = is_array($config) ? $config : array();
+                    if (is_string($config)) {
+                        $config = array($config);
+                    }
+
+                    if (!is_array($config)) {
+                        $config = array();
+                    }
+
                     $roles = array_merge($roles, $config);
                 }
             );
@@ -157,7 +165,7 @@ class Service implements EventManagerAwareInterface
     }
 
     /**
-     * @return Rbac
+     * @return \Zend\Permissions\Rbac\Rbac
      */
     protected function getRbac()
     {
