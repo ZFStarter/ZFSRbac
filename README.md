@@ -16,7 +16,7 @@ zfs-rbac
 Настройка через события
 ---
 
-Модуль содержит сервис ```ZFS\Rbac\Service```, помощник представления ```isGranted``` и плагин контроллера ```isGranted```.
+Модуль содержит сервис ```ZFS\Rbac\Rbac```, помощник представления ```isGranted``` и плагин контроллера ```isGranted```.
 
 В процессе работы сервиса, он выбрасывает 2 события: 
 - EVENT_GET_CONFIG (ZFS\Rbac\Service\Event\GetConfig)
@@ -25,8 +25,8 @@ zfs-rbac
 EVENT_GET_CONFIG ожидает от программной среды конфигурацию ролей и их разрешений. Предоставить ее можно подписавшись на событие:
 ```php
 $this->getEventManager()->getSharedManager()->attach(
-    ZFS\Rbac\Service::EVENT_MANAGER_IDENTIFIER,
-    ZFS\Rbac\Service::EVENT_GET_CONFIG,
+    ZFS\Rbac\Rbac::EVENT_MANAGER_IDENTIFIER,
+    ZFS\Rbac\Rbac::EVENT_GET_CONFIG,
     function () {
         return array(
             'user' => array(
@@ -54,8 +54,8 @@ $this->getEventManager()->getSharedManager()->attach(
 EVENT_GET_USER_ROLES ожидает список ролей текущего пользователя. Предоставить его можно подписавшись на событие:
 ```php
 $this->getEventManager()->getSharedManager()->attach(
-    ZFS\Rbac\Service::EVENT_MANAGER_IDENTIFIER,
-    ZFS\Rbac\Service::EVENT_GET_USER_ROLES,
+    ZFS\Rbac\Rbac::EVENT_MANAGER_IDENTIFIER,
+    ZFS\Rbac\Rbac::EVENT_GET_USER_ROLES,
     function () {
         return array('admin');
     }
